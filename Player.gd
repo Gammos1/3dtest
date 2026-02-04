@@ -14,6 +14,7 @@ var escaped := false
 var camera_offset := 0
 
 onready var _camera: Camera = $Camera
+onready var raycast := $Camera/RayCast
 
 
 func _physics_process(delta: float) -> void:
@@ -55,4 +56,21 @@ func _process(delta: float) -> void:
 	_camera.translation.x = translation.x
 	_camera.translation.z = translation.z
 	_camera.translation.y = lerp(_camera.translation.y, camera_offset, ctrl_speed * delta)
+	
+	
+func _input(event):
+	$HUD/Hand.visible = false
+	$HUD/Sprite.visible = true
+	if raycast.is_colliding():
+		
+		var hit = raycast.get_collider()
+		if hit.is_in_group("doors"):
+			$HUD/Hand.visible = true
+			$HUD/Sprite.visible = false
+		if Input.is_action_just_released("click"):
+			if hit.is_in_group("doors"):
+				hit._open()
+
+
+
 
