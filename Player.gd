@@ -10,7 +10,6 @@ export var camera_height := 1.7
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
-var escaped := false
 var camera_offset := 0
 
 onready var _camera: Camera = $Camera
@@ -41,6 +40,24 @@ func _physics_process(delta: float) -> void:
 	#elif just_landed:
 	#	_snap_vector = Vector3.DOWN
 	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
+	
+	if raycast.is_colliding():
+		if raycast.get_collider().is_in_group("takable"):
+			if raycast.get_collider().is_in_group("take_side"):
+				if Input.is_action_just_released("click"):
+					$Camera/holding_side.take(raycast.get_collider())
+		if raycast.get_collider().is_in_group("interactable"):
+			hud_showHand(true)
+			if raycast.get_collider().is_in_group("door"):
+				if Input.is_action_just_released("click"):
+					raycast.get_collider().open()
+		else:
+			hud_showHand(false)
+	else:
+		hud_showHand(false)
+		
+	if Input.is_action_just_released("rclick"):
+		$Camera/holding_side.drop()
 
 
 
@@ -56,21 +73,13 @@ func _process(delta: float) -> void:
 	_camera.translation.x = translation.x
 	_camera.translation.z = translation.z
 	_camera.translation.y = lerp(_camera.translation.y, camera_offset, ctrl_speed * delta)
-	
-	
-func _input(event):
-	$HUD/Hand.visible = false
-	$HUD/Sprite.visible = true
-	if raycast.is_colliding():
-		
-		var hit = raycast.get_collider()
-		if hit.is_in_group("doors"):
-			$HUD/Hand.visible = true
-			$HUD/Sprite.visible = false
-		if Input.is_action_just_released("click"):
-			if hit.is_in_group("doors"):
-				hit._open()
 
 
-
+func hud_showHand(show):
+	if show:
+		$HUD/Ring.visible = false
+		$HUD/Hand.visible = true
+	else:
+		$HUD/Ring.visible = true
+		$HUD/Hand.visible = false
 

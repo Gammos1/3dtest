@@ -8,7 +8,7 @@
 "hud",
 ]]
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Ring" type="Sprite" parent="."]
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
