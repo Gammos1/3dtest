@@ -22,5 +22,4 @@ func drop():
 		holding.linear_velocity = Vector3.ZERO
 		holding.angular_velocity = Vector3.ZERO
 		holding.sleeping = false
-		print(holding.sleeping)
 		holding = null

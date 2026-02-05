@@ -63,16 +63,13 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ctrl"):
-		#_camera.translation.y -= translation.y/6
 		camera_offset = camera_height - 0.700001
 	else:
-		#_camera.translation.y += translation.y/2 - 0.1
 		camera_offset = camera_height + (translation.y/2 - 0.675249)
 
 	_camera.translation.x = translation.x
 	_camera.translation.z = translation.z
 	_camera.translation.y = lerp(_camera.translation.y, camera_offset, ctrl_speed * delta)
-	print(_camera.translation.y)
 
 
 func hud_showHand(show):
