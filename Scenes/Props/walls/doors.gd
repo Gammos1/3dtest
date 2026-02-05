@@ -1,16 +1,16 @@
 extends StaticBody
 
-export var open := false
+export var isOpen := false
 onready var player := get_node("../../../Door")
 
 func open():
-	if not open and not player.is_playing():
+	if not isOpen and not player.is_playing():
 		player.play("open")
-		open = true
+		isOpen = true
 	elif not player.is_playing():
 		close()
 
 func close():
-	if open:
+	if isOpen:
 		player.play_backwards("open")
-		open = false
+		isOpen = false
