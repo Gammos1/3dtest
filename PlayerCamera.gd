@@ -14,6 +14,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
+		
+	if Input.is_action_just_released("f11"):
+		if (OS.window_fullscreen):
+			OS.set_window_fullscreen(false)
+		else:
+			OS.set_window_fullscreen(true)
 
 func _process(_delta):
 	if Input.is_action_just_released("ui_cancel") and not escaped:
