@@ -1,7 +1,7 @@
 extends KinematicBody
 
 export var speed := 2.0
-export var jump_strength := 2.5
+#export var jump_strength := 2.5
 export var gravity := 9.81
 export var sprint_speed := 2.0
 export var ctrl_speed := 9.0
@@ -10,7 +10,7 @@ export var camera_height := 1.7
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
-var camera_offset := 0
+var camera_offset := 0.0
 
 onready var _camera: Camera = $Camera
 onready var raycast := $Camera/RayCast
@@ -22,11 +22,11 @@ func _physics_process(delta: float) -> void:
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
 	move_direction = move_direction.rotated(Vector3.UP, _camera.rotation.y).normalized()
 	
-	var sprint := 0
+	var sprint := 0.0
 	if Input.is_action_pressed("shift"):
 		sprint = sprint_speed
 	else:
-		sprint = 0
+		sprint = 0.0
 	
 	_velocity.x = move_direction.x * (speed + sprint)
 	_velocity.z = move_direction.z * (speed + sprint)
@@ -64,15 +64,15 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("ctrl"):
 		#_camera.translation.y -= translation.y/6
-		camera_offset = camera_height - translation.y/6
-
+		camera_offset = camera_height - 0.700001
 	else:
 		#_camera.translation.y += translation.y/2 - 0.1
-		camera_offset = camera_height + (translation.y/2 - 0.1)
+		camera_offset = camera_height + (translation.y/2 - 0.675249)
 
 	_camera.translation.x = translation.x
 	_camera.translation.z = translation.z
 	_camera.translation.y = lerp(_camera.translation.y, camera_offset, ctrl_speed * delta)
+	print(_camera.translation.y)
 
 
 func hud_showHand(show):
