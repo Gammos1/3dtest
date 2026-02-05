@@ -2,14 +2,14 @@
 
 [ext_resource path="res://assets/PSX Mega Pack/Textures/concrete_1.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_on.glb" type="PackedScene" id=3]
-[ext_resource path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_fake_light_1.glb" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Props/Large_table_2.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Props/walls/wall_normal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Props/walls/door_wall_green_concrete.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Props/walls/floor_1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Props/small_props/book_1.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Props/small_props/padlock_1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Props/small_props/book_1.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Props/small_props/padlock_1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Props/walls/wall_normal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Props/walls/door_wall_green_concrete.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Props/walls/floor_1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_on.glb" type="PackedScene" id=8]
+[ext_resource path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_fake_light_1.glb" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Props/Large_table_2.tscn" type="PackedScene" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 10, 0.1, 10 )
@@ -32,8 +32,7 @@ fog_depth_end = 890.0
 [node name="World" type="Spatial"]
 
 [node name="Ground" type="StaticBody" parent="."]
-editor/display_folded = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.1, 0 )
 collision_layer = 3
 collision_mask = 3
 
@@ -46,63 +45,65 @@ mesh = SubResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 
-[node name="Environment" type="Node" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
 
-[node name="1st Room" type="Node" parent="Environment"]
+[node name="dropped_items" type="Node" parent="."]
 
-[node name="Square Lamp" parent="Environment/1st Room" instance=ExtResource( 3 )]
+[node name="Book" parent="dropped_items" instance=ExtResource( 3 )]
+transform = Transform( -0.880319, 0, 0.474383, 0, 1, 0, -0.474383, 0, -0.880319, -1.10571, 1.20501, -0.967405 )
+
+[node name="Padlock" parent="dropped_items" instance=ExtResource( 4 )]
+transform = Transform( 0.898171, 0.439646, 1.92175e-008, 0, -4.37114e-008, 1, 0.439646, -0.898171, -3.92603e-008, -0.182573, 1.01524, -0.636409 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="1st Room" type="Spatial" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00308492, 0 )
+
+[node name="Walls" type="Spatial" parent="Environment/1st Room"]
+
+[node name="Wall" parent="Environment/1st Room/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, 1.96273 )
+
+[node name="Wall2" parent="Environment/1st Room/Walls" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, -1.95854 )
+
+[node name="Wall3" parent="Environment/1st Room/Walls" instance=ExtResource( 5 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -2.73639, 0, 0.0065167 )
+
+[node name="Doorwall" parent="Environment/1st Room/Walls" instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1.18677, 0, 0 )
+
+[node name="Floor" parent="Environment/1st Room/Walls" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76963, 2.99171, 0 )
+
+[node name="Floor2" parent="Environment/1st Room/Walls" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76963, 0.000596069, 0 )
+
+[node name="Square Lamp" parent="Environment/1st Room" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.674314, 3.00738, 0 )
 
-[node name="Fake Light" parent="Environment/1st Room/Square Lamp" instance=ExtResource( 4 )]
+[node name="Fake Light" parent="Environment/1st Room/Square Lamp" instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="SpotLight" type="SpotLight" parent="Environment/1st Room/Square Lamp"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, -0.14869, 0 )
 light_color = Color( 0.960784, 1, 0.796078, 1 )
+shadow_enabled = true
 shadow_color = Color( 0.611765, 0.611765, 0.611765, 1 )
-shadow_bias = 0.0
+shadow_bias = 0.01
 spot_range = 18.3
 spot_angle = 81.8
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Environment/1st Room/Square Lamp"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, -1.99844, 0 )
-shadow_enabled = true
+shadow_bias = 0.5
 
 [node name="SpotLight2" type="SpotLight" parent="Environment/1st Room/Square Lamp"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-008, -1, 0, 1, -4.37114e-008, 0, -1.90511, 0 )
 light_energy = 0.5
 spot_angle = 70.5
 
-[node name="Table" parent="Environment/1st Room" instance=ExtResource( 5 )]
+[node name="Table" parent="Environment/1st Room" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716883, -0.107528, -0.727349 )
-
-[node name="Walls" type="Node" parent="Environment/1st Room"]
-
-[node name="Wall" parent="Environment/1st Room/Walls" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, 1.96273 )
-
-[node name="Wall2" parent="Environment/1st Room/Walls" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, -1.95854 )
-
-[node name="Wall3" parent="Environment/1st Room/Walls" instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, -2.73639, 0, 0.0065167 )
-
-[node name="Doorwall" parent="Environment/1st Room/Walls" instance=ExtResource( 7 )]
-transform = Transform( -4.37114e-008, 0, 1, 0, 1, 0, -1, 0, -4.37114e-008, 1.18677, 0, 0 )
-
-[node name="Floor" parent="Environment/1st Room/Walls" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76963, 2.99171, 0 )
-
-[node name="Floor2" parent="Environment/1st Room/Walls" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.76963, -0.0985399, 0 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 4 )
-
-[node name="dropped_items" type="Node" parent="."]
-
-[node name="Book" parent="dropped_items" instance=ExtResource( 9 )]
-transform = Transform( -0.880319, 0, 0.474383, 0, 1, 0, -0.474383, 0, -0.880319, -1.10571, 1.20501, -0.967405 )
-
-[node name="Padlock" parent="dropped_items" instance=ExtResource( 10 )]
-transform = Transform( 0.898171, 0.439646, 1.92175e-008, 0, -4.37114e-008, 1, 0.439646, -0.898171, -3.92603e-008, -0.182573, 1.01524, -0.636409 )
