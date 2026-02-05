@@ -1,7 +1,7 @@
-extends Spatial
+extends Node3D
 
 func collision(a):
-	$CollisionShape.disabled = not a
+	$CollisionShape3D.disabled = not a
 	
 func get_collision():
-	return $CollisionShape
+	return $CollisionShape3D

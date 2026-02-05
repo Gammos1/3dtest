@@ -1,0 +1,11 @@
+res://default_env.tres
+res://Scenes/Props/walls/doors.gd
+res://World.tscn
+res://Scenes/Player.tscn
+res://Scenes/Props/small_props/book_1.tscn
+res://assets/PSX Mega Pack/Models/GLB (recommended)/Small Props/books_mp_1.material
+res://Player.gd
+res://Scenes/holding_side.gd
+res://PlayerCamera.gd
+res://Scenes/HUD.tscn
+res://Scenes/Crosshair.gd

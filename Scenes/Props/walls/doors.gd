@@ -1,7 +1,7 @@
-extends StaticBody
+extends StaticBody3D
 
-export var isOpen := false
-onready var player := get_node("../../../Door")
+@export var isOpen := false
+@onready var player := get_node("../../../Door")
 
 func open():
 	if not isOpen and not player.is_playing():

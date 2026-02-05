@@ -1,18 +1,16 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene format=3 uid="uid://dd8r8h2eiedif"]
 
-[ext_resource path="res://assets/crosshair.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Crosshair.gd" type="Script" id=2]
-[ext_resource path="res://assets/Hand.png" type="Texture" id=3]
+[ext_resource type="Texture2D" uid="uid://c7bvmg57n61c1" path="res://assets/crosshair.png" id="1"]
+[ext_resource type="Script" uid="uid://cky4kcevd7se0" path="res://Scenes/Crosshair.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://rxelytvsl0ip" path="res://assets/Hand.png" id="3"]
 
-[node name="HUD" type="CanvasLayer" groups=[
-"hud",
-]]
+[node name="HUD" type="CanvasLayer" unique_id=595622636 groups=["hud"]]
 
-[node name="Ring" type="Sprite" parent="."]
-texture = ExtResource( 1 )
-script = ExtResource( 2 )
+[node name="Ring" type="Sprite2D" parent="." unique_id=1569973790]
+texture = ExtResource("1")
+script = ExtResource("2")
 
-[node name="Hand" type="Sprite" parent="."]
+[node name="Hand" type="Sprite2D" parent="." unique_id=1925247517]
 visible = false
-texture = ExtResource( 3 )
-script = ExtResource( 2 )
+texture = ExtResource("3")
+script = ExtResource("2")

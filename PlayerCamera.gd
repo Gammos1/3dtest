@@ -1,10 +1,10 @@
-extends Camera
+extends Camera3D
 
-export var mouse_sensitivity := 0.1
+@export var mouse_sensitivity := 0.1
 var escaped := false
 
 func _ready() -> void:
-	set_as_toplevel(true)
+	set_as_top_level(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _unhandled_input(event: InputEvent) -> void:
@@ -15,11 +15,15 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
 		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
 		
+		get_parent().get_node("Pivot").rotation_degrees.y = rotation_degrees.y
+		get_parent().get_node("Pivot").rotation_degrees.x = rotation_degrees.x
+		
+		
 	if Input.is_action_just_released("f11"):
-		if (OS.window_fullscreen):
-			OS.set_window_fullscreen(false)
+		if (((get_window().mode == Window.MODE_EXCLUSIVE_FULLSCREEN) or (get_window().mode == Window.MODE_FULLSCREEN))):
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (false) else Window.MODE_WINDOWED
 		else:
-			OS.set_window_fullscreen(true)
+			get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (true) else Window.MODE_WINDOWED
 
 func _process(_delta):
 	if Input.is_action_just_released("ui_cancel") and not escaped:

@@ -1,19 +1,19 @@
-extends KinematicBody
+extends CharacterBody3D
 
-export var speed := 2.0
+@export var speed := 2.0
 #export var jump_strength := 2.5
-export var gravity := 9.81
-export var sprint_speed := 2.0
-export var ctrl_speed := 9.0
-export var camera_height := 1.7
+@export var gravity := 9.81
+@export var sprint_speed := 2.0
+@export var ctrl_speed := 9.0
+@export var camera_height := 1.7
 
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
 var camera_offset := 0.0
 
-onready var _camera: Camera = $Camera
-onready var raycast := $Camera/RayCast
+@onready var _camera: Camera3D = $Camera3D
+@onready var raycast := $Camera3D/RayCast3D
 
 
 func _physics_process(delta: float) -> void:
@@ -39,13 +39,18 @@ func _physics_process(delta: float) -> void:
 	#	_snap_vector = Vector3.ZERO
 	#elif just_landed:
 	#	_snap_vector = Vector3.DOWN
-	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
+	set_velocity(_velocity)
+	# TODOConverter3To4 looks that snap in Godot 4 is float, not vector like in Godot 3 - previous value `_snap_vector`
+	set_up_direction(Vector3.UP)
+	set_floor_stop_on_slope_enabled(true)
+	move_and_slide()
+	_velocity = velocity
 	
 	if raycast.is_colliding():
 		if raycast.get_collider().is_in_group("takable"):
 			if raycast.get_collider().is_in_group("take_side"):
 				if Input.is_action_just_released("click"):
-					$Camera/holding_side.take(raycast.get_collider())
+					$Pivot/holding_side.take(raycast.get_collider())
 		if raycast.get_collider().is_in_group("interactable"):
 			hud_showHand(true)
 			if raycast.get_collider().is_in_group("door"):
@@ -57,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		hud_showHand(false)
 		
 	if Input.is_action_just_released("rclick"):
-		$Camera/holding_side.drop()
+		$Pivot/holding_side.drop()
 
 
 
@@ -65,11 +70,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("ctrl"):
 		camera_offset = camera_height - 0.700001
 	else:
-		camera_offset = camera_height + (translation.y/2 - 0.675249)
+		camera_offset = camera_height + (position.y/2 - 0.675249)
 
-	_camera.translation.x = translation.x
-	_camera.translation.z = translation.z
-	_camera.translation.y = lerp(_camera.translation.y, camera_offset, ctrl_speed * delta)
+	_camera.position.x = position.x
+	_camera.position.z = position.z
+	_camera.position.y = lerp(_camera.position.y, camera_offset, ctrl_speed * delta)
+	
 
 
 func hud_showHand(show):
@@ -79,4 +85,3 @@ func hud_showHand(show):
 	else:
 		$HUD/Ring.visible = true
 		$HUD/Hand.visible = false
-

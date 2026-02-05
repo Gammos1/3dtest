@@ -1,4 +1,4 @@
-extends Spatial
+extends Node3D
 
 var holding
 
@@ -6,10 +6,10 @@ func take(node):
 	if (holding == null):
 		node.get_parent().remove_child(node)
 		call_deferred("add_child", node)
-		node.translation = Vector3.ZERO
+		node.position = Vector3.ZERO
 		node.rotation_degrees = Vector3.ZERO
 		node.collision(false)
-		node.sleeping = false
+		node.freeze = true
 		holding = node
 
 func drop():
@@ -21,5 +21,5 @@ func drop():
 		holding.collision(true)
 		holding.linear_velocity = Vector3.ZERO
 		holding.angular_velocity = Vector3.ZERO
-		holding.sleeping = false
+		holding.freeze = false
 		holding = null
