@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0.145098, 0.176471, 0.227451, 1)
 boot_splash/image="res://assets/splash.png"
 config/icon="res://icon.png"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 forward={

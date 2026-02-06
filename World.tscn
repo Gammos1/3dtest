@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://dxhrfmkj2bd03"]
 
-[ext_resource type="Texture2D" uid="uid://7ukn7w8lilhv" path="res://assets/PSX Mega Pack/Textures/concrete_1.jpg" id="1"]
+[ext_resource type="Texture2D" uid="uid://bdt3uxm35t70i" path="res://assets/PSX Mega Pack/Textures/concrete_1.jpg" id="1"]
 [ext_resource type="PackedScene" uid="uid://p5prvmg6ebiw" path="res://Scenes/Player.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://dcfb3d6xyhne8" path="res://Scenes/Props/small_props/book_1.tscn" id="3"]
-[ext_resource type="PackedScene" path="res://Scenes/Props/small_props/padlock_1.tscn" id="4"]
-[ext_resource type="PackedScene" path="res://Scenes/Props/walls/wall_normal.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://bf7c7vh32uyu3" path="res://Scenes/Props/small_props/book_mp_1.tscn" id="4_fvag4"]
+[ext_resource type="PackedScene" uid="uid://dhtr1w7l8kvvh" path="res://Scenes/Props/walls/wall_normal.tscn" id="5"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/walls/door_wall_green_concrete.tscn" id="6"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/walls/floor_1.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://yxyrvuc2s1wd" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_on.glb" id="8"]
 [ext_resource type="PackedScene" uid="uid://ch3le2gliogcl" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Lighting/ceiling_lamp_1_fake_light_1.glb" id="9"]
 [ext_resource type="PackedScene" path="res://Scenes/Props/Large_table_2.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://bggghe34xep3d" path="res://Scenes/Props/small_props/pc_monitor_mp_1.tscn" id="10_kva58"]
+[ext_resource type="PackedScene" uid="uid://btirilhol8f10" path="res://Scenes/Props/ceiling_fan_mp_1.tscn" id="11_f5c0m"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(20, 0.2, 20)
@@ -19,14 +20,6 @@ albedo_texture = ExtResource("1")
 
 [sub_resource type="BoxMesh" id="3"]
 material = SubResource("2")
-
-[sub_resource type="Environment" id="4"]
-background_mode = 3
-background_color = Color(0.196078, 0.196078, 0.196078, 1)
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.0
-fog_depth_begin = 889.1
-fog_depth_end = 890.0
 
 [node name="World" type="Node3D" unique_id=254308779]
 
@@ -45,16 +38,10 @@ mesh = SubResource("3")
 [node name="Player" parent="." unique_id=2109109474 instance=ExtResource("2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.82186, 1.37279, 1.41105)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1301494338]
-environment = SubResource("4")
-
 [node name="dropped_items" type="Node" parent="." unique_id=1459478134]
 
-[node name="Book" parent="dropped_items" unique_id=1936264614 instance=ExtResource("3")]
-transform = Transform3D(-0.880319, 0, 0.474383, 0, 1, 0, -0.474383, 0, -0.880319, -1.10571, 1.20501, -0.967405)
-
-[node name="Padlock" parent="dropped_items" unique_id=409023777 instance=ExtResource("4")]
-transform = Transform3D(0.898171, 0.439646, 1.92175e-08, 0, -4.37114e-08, 1, 0.439646, -0.898171, -3.92603e-08, -0.182573, 1.01524, -0.636409)
+[node name="RigidBody3D" parent="dropped_items" unique_id=695455867 instance=ExtResource("4_fvag4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9692801, 0.87712884, -0.8239303)
 
 [node name="Environment" type="Node3D" parent="." unique_id=1455898072]
 
@@ -64,7 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00308492, 0)
 [node name="Walls" type="Node3D" parent="Environment/1st Room" unique_id=250337321]
 
 [node name="Wall" parent="Environment/1st Room/Walls" unique_id=1496282626 instance=ExtResource("5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, 1.96273)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.784, 0, 1.963)
 
 [node name="Wall2" parent="Environment/1st Room/Walls" unique_id=60607138 instance=ExtResource("5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.774503, 0, -1.95854)
@@ -100,8 +87,110 @@ spot_angle = 81.8
 
 [node name="SpotLight2" type="SpotLight3D" parent="Environment/1st Room/Square Lamp" unique_id=1491111770]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.90511, 0)
+visible = false
 light_energy = 0.5
 spot_angle = 70.5
 
 [node name="Table" parent="Environment/1st Room" unique_id=1350979026 instance=ExtResource("10")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.716883, -0.107528, -0.727349)
+
+[node name="2nd Room" type="Node3D" parent="Environment" unique_id=787005116]
+
+[node name="Scene Root" parent="Environment/2nd Room" unique_id=1458470289 instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2466168, 0, 1.9618711)
+
+[node name="Scene Root9" parent="Environment/2nd Room" unique_id=1723640265 instance=ExtResource("5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9.165111, 0, 0.09502244)
+
+[node name="Scene Root4" parent="Environment/2nd Room" unique_id=753894163 instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27603, 0, -1.9664724)
+
+[node name="Scene Root2" parent="Environment/2nd Room" unique_id=1258443391 instance=ExtResource("5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.187, 0, 3.915)
+
+[node name="Scene Root3" parent="Environment/2nd Room" unique_id=411529712 instance=ExtResource("5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2372391, 0, -1.9585924)
+
+[node name="Floor1" parent="Environment/2nd Room" unique_id=1829228253 instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2353501, 0, 0)
+
+[node name="Floor2" parent="Environment/2nd Room" unique_id=582061474 instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.232, 0, 0)
+
+[node name="Floor4" parent="Environment/2nd Room" unique_id=1029559288 instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.245, 3, 0.014)
+
+[node name="Floor5" parent="Environment/2nd Room" unique_id=1654753088 instance=ExtResource("7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.266, 3, 0.014)
+
+[node name="Square Lamp2" parent="Environment/2nd Room" unique_id=30931955 instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5574017, 3.00738, 0)
+
+[node name="Fake Light3D" parent="Environment/2nd Room/Square Lamp2" unique_id=218193941 instance=ExtResource("9")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/2nd Room/Square Lamp2" unique_id=1868446888]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.14869, 0)
+light_color = Color(0.960784, 1, 0.796078, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 5.0
+shadow_transmittance_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.3
+spot_angle = 81.8
+
+[node name="SpotLight2" type="SpotLight3D" parent="Environment/2nd Room/Square Lamp2" unique_id=1650275632]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.90511, 0)
+visible = false
+light_energy = 0.5
+spot_angle = 70.5
+
+[node name="Square Lamp3" parent="Environment/2nd Room" unique_id=1432245954 instance=ExtResource("8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.993331, 3.00738, 0)
+
+[node name="Fake Light3D" parent="Environment/2nd Room/Square Lamp3" unique_id=674818867 instance=ExtResource("9")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment/2nd Room/Square Lamp3" unique_id=203855460]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.14869, 0)
+light_color = Color(0.960784, 1, 0.796078, 1)
+shadow_enabled = true
+shadow_bias = 0.01
+shadow_normal_bias = 5.0
+shadow_transmittance_bias = 0.01
+shadow_opacity = 0.6
+spot_range = 18.3
+spot_angle = 81.8
+
+[node name="SpotLight2" type="SpotLight3D" parent="Environment/2nd Room/Square Lamp3" unique_id=1014663939]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.90511, 0)
+visible = false
+light_energy = 0.5
+spot_angle = 70.5
+
+[node name="Table2" parent="Environment/2nd Room" unique_id=1296416409 instance=ExtResource("10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5888796, -0.107528, -1.42007)
+
+[node name="StaticBody3D" parent="Environment/2nd Room/Table2" unique_id=1498648016 instance=ExtResource("10_kva58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4215727, 0.95846486, -0.24399734)
+
+[node name="StaticBody3D2" parent="Environment/2nd Room/Table2" unique_id=683164275 instance=ExtResource("10_kva58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30003738, 0.95846486, -0.24399734)
+
+[node name="Table3" parent="Environment/2nd Room" unique_id=1023016482 instance=ExtResource("10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.653598, -0.107528, -1.42007)
+
+[node name="StaticBody3D" parent="Environment/2nd Room/Table3" unique_id=621081500 instance=ExtResource("10_kva58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4215727, 0.95846486, -0.24399734)
+
+[node name="StaticBody3D2" parent="Environment/2nd Room/Table3" unique_id=237116329 instance=ExtResource("10_kva58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30003738, 0.95846486, -0.24399734)
+
+[node name="CeilingFan" parent="Environment/2nd Room" unique_id=1933657121 instance=ExtResource("11_f5c0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.1340346, 3.0076048, 0)
+
+[node name="Doorwall2" parent="Environment/2nd Room" unique_id=72095465 instance=ExtResource("6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 7.13, 0, 1.963)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1278604599]

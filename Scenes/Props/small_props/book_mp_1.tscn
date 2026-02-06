@@ -1,0 +1,56 @@
+[gd_scene format=4 uid="uid://bf7c7vh32uyu3"]
+
+[ext_resource type="Script" uid="uid://chueuwl8lp1pr" path="res://Scenes/Props/item.gd" id="1_lc6pf"]
+[ext_resource type="Texture2D" uid="uid://drv38x0mox0b8" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Small Props/book_mp_1_books_mp_1.png" id="1_o6n36"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7qfk"]
+resource_name = "books_mp_1"
+cull_mode = 2
+albedo_texture = ExtResource("1_o6n36")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ekojg"]
+_surfaces = [{
+"aabb": AABB(-0.0900002, 3.298357e-06, -0.13500102, 0.18001299, 0.048000015, 0.26999998),
+"format": 34896613377,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAAAAAIAAwAAAAQABAACAAUAAwAEAAYAAwAGAAcABgAEAAgABAAFAAgABgAIAAcAAwAHAAkACQAHAAgAAwAJAAEACQAIAAEAAgAKAAUACgAIAAUACwACAAEAAgALAAoAAQAIAAwACgAMAAgACwABAA0AAQAMAA0ACgALAA4ACwANAA4ACgAPAAwACgAOAA8ADQAMABAADQAQABEAEgAQAAwAEgAMAA8AEgARABAAEwAPAA4AEwASAA8AEwAOAA0AEgATABEAEwANABEAFAAVABYAFAAXABUAFgAVABgAFgAYABkAGgAZABgAGgAbABkA"),
+"name": "books_mp_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("1gObAgAAAADCBSUYAAAAAAAADREAAAAA+v8AAAAAAADWA5sC//8AAAAADRH//wAA+v8AAP//AAD8/5kV//8AAMIFJRj//wAA/P+ZFQAAAAAAAMbr//8AAAAAxusAAAAAwgXO5P//AADCBc7kAAAAANYDRPoAAAAA1gNE+v//AAD//2Xq//8AAP//ZeoAAAAA+v/+////AAD6////AAAAAMIFJRgm/QAAuvtl6ib9AAC4+5kVJv0AAMIFzuQm/QAAuvtl6tgCAAC4+5kV2AIAAMIFzuTYAgAAwgUlGNgCAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ga2tc"]
+resource_name = "book_mp_1_book_mp_1"
+_surfaces = [{
+"aabb": AABB(-0.0900002, 3.298357e-06, -0.13500102, 0.18001299, 0.048000015, 0.26999998),
+"attribute_data": PackedByteArray("AAD/C/8A/wv/AP8KAAD/Lv8A/y7/CP8K/wj/C/8J/wv/Cf8u/wj/LgAA/y7/AP8L/wD/LgAA/wv/AP8K/wj/Cv8I/wv/Cf8L/wn/Lv8I/y7/Jf85AAAAAAAA/zn/JQAA/yX/Of8vAAD/L/85/yUAAAAAAAD/Jv85AAD/Of8mAAAAAP85/wAAAP8A/zkAAAAAAAD/Of8lAAD/Jf85AAAAAP8u/zn/LwAA/y//Of8uAAD/CQAA/wj/Of8IAAD/Cf85/yYAAP8u/zn/Jv85/y4AAP8l/zn/JgAA/yb/Of8lAAD/VgAA/y//Of8vAAD/Vv85/wj///8w//b/MP///wj/9v8w//b/CP///wj/9v8w//8AAP///zn/9v85//8AAP/2"),
+"format": 34896613399,
+"index_count": 126,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwAEAAEABQACAAEABQABAAYABQAGAAcACAAHAAYACAAGAAkACgALAAwACgANAAsADQAOAAsADwALAA4ADwAQAAsADwARABAAEgAQABEAEgATABAAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0AMAAxADIAMAAzADEANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUA"),
+"material": SubResource("StandardMaterial3D_u7qfk"),
+"name": "books_mp_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("1gObAgAAAADCBSUYAAAAAAAADREAAAAA+v8AAAAAAAD8/5kVAAAAAAAAxusAAAAAwgXO5AAAAADWA0T6AAAAAPr///8AAAAA//9l6gAAAAD6/wAA//+/v8IFJRj//y64/P+ZFf//77/WA5sC///csgAADRH//9i5AADG6///JMbCBc7k///Zx9YDRPr//y3N+v/+////UMD//2Xq//8gwPz/mRUAAP8/wgUlGP///z/CBSUYAAD/P/z/mRX///8/wgUlGAAAVNXCBc7k//9U1cIFzuQAAFTVwgUlGP//VNX6/wAAAADq/9YDmwL//+r/+v8AAP//6v/WA5sCAADq//r/AAAAAEvV/P+ZFf//S9X8/5kVAABL1fr/AAD//0vVwgXO5AAA/7///2Xq////v///ZeoAAP+/wgXO5P///78AAMbr//8IxtYDRPoAAAjG1gNE+v//CMYAAMbrAAAIxvr//v///2fV//9l6gAAZ9X//2Xq//9n1fr///8AAGfVAAANEQAAVNUAAMbr//9U1QAADRH//1TVAADG6wAAVNXWA5sC//+g6QAADREAAKDpAAANEf//oOnWA5sCAACg6fr///8AAP+/1gNE+v///7/WA0T6AAD/v/r//v////+/wgUlGCb9MYC6+2XqJv0PgLj7mRUm/RyAwgXO5Cb9PoDCBc7k2AL//7j7mRXYAv//uvtl6tgC///CBSUY2AL//7j7mRUm/f+/uvtl6tgC/7+4+5kV2AL/v7r7Zeom/f+/Z8qWtSfG1rnWxCi7McDNvwvA878pu9XEz7kvxo21cMq/vz/A5L8ZwAAA/v8AAP7/AAD+/wAA/v///wAAAAD+//7/AAAAAP7//v8AAP7/AACm/9N/pv/Tf6b/03+m/9N/qiqqKqoqqiqqKqoqqiqqKgrA6P8KwOj/CsDo/wrA6P+lKrUqpSq1KqUqtSqlKrUqYQA9f2EAPX9hAD1/YQA9f+3iIrrt4iK67eIiuu3iIrq2KpMqtiqTKrYqkyq2KpMqVNVU1VTVVNVU1VTVVNVU1f/K/+n/yv/p/8r/6f/K/+mc/8SAnP/EgJz/xICc/8SAAAABAPl//X/8f/5/AAABABeA5v+wf7D/nH+c/yyA0f/8fwUA/H8FAPx/BQD8fwUA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_ekojg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v280b"]
+size = Vector3(0.17904663, 0.05078125, 0.269989)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=695455867 groups=["interactable", "takable", "take_side"]]
+mass = 0.3
+script = ExtResource("1_lc6pf")
+
+[node name="book_mp_1" type="MeshInstance3D" parent="." unique_id=1451062880]
+mesh = SubResource("ArrayMesh_ga2tc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1793570812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00044250488, 0.0234375, -0.000289917)
+shape = SubResource("BoxShape3D_v280b")
