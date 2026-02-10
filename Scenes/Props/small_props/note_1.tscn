@@ -1,0 +1,74 @@
+[gd_scene format=4 uid="uid://w0tsh6it2kv0"]
+
+[ext_resource type="Script" uid="uid://chueuwl8lp1pr" path="res://Scenes/Props/item.gd" id="1_6ycmt"]
+[ext_resource type="Texture2D" uid="uid://cr4h26qkvisd7" path="res://assets/assetpack_industrial/Models/GLB/note_1_note_1.png" id="1_hsu72"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j8m5"]
+resource_name = "note_1"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_hsu72")
+texture_filter = 2
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_41un1"]
+_surfaces = [{
+"aabb": AABB(-0.10988265, -0.15, -0.0025000393, 0.21735822, 0.3, 0.0010000512),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"name": "note_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAD+////AgAAAAAA//8AAAAA//8AAAMAAAAAAAAA/P8AAP7////+/wAA//8AAP//AAAAAP//+/8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4n0ur"]
+resource_name = "note_1_note_1"
+_surfaces = [{
+"aabb": AABB(-0.10988265, -0.15, -0.0025000393, 0.21735822, 0.3, 0.0010000512),
+"attribute_data": PackedByteArray("OyIAALXb//87Iv//tdsAADsiAAC12///tdsAADsi//8="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_1j8m5"),
+"name": "note_1",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAA///+////AgD//wAA//8AAP////8AAAMA//8AAAAA/P/+f/7////+//5///8AAP///n8AAP//+//+f/7//3/+//9//v//f/7//3//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_41un1")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hsu72"]
+size = Vector3(0.21276855, 0.021530151, 0.29171753)
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=466292945 groups=["interactable", "takable", "take_side"]]
+mass = 0.01
+script = ExtResource("1_6ycmt")
+
+[node name="note_1" type="MeshInstance3D" parent="." unique_id=1328452897]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_4n0ur")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1529934771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016479492, 0.0018844604, 0.0010528564)
+shape = SubResource("BoxShape3D_hsu72")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=79257677]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0061248243, 0.0046506748, -0.040420726)
+pixel_size = 0.0001
+modulate = Color(0.16863364, 0.15746936, 0.13513821, 1)
+text = "Lorem
+absolut
+Ipsum"
+font_size = 150
+outline_size = 0
+autowrap_mode = 3
+autowrap_trim_flags = 0
+width = 1700.0

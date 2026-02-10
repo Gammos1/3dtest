@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://btirilhol8f10"]
 
-[ext_resource type="Texture2D" uid="uid://b6fullv1ae1x" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Electronics & Misc/ceiling_fan_mp_1_plastic_mp_3.png" id="1_vmx26"]
-[ext_resource type="Texture2D" uid="uid://clbn42j6587bb" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Electronics & Misc/ceiling_fan_mp_1_wood_3.png" id="2_flxdh"]
+[ext_resource type="Texture2D" uid="uid://b6fullv1ae1x" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Electronics & Misc/ceiling_fan_mp_1_plastic_mp_3.png" id="1_vmx26"]
+[ext_resource type="Texture2D" uid="uid://clbn42j6587bb" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Electronics & Misc/ceiling_fan_mp_1_wood_3.png" id="2_flxdh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_582sd"]
 resource_name = "plastic_mp_3"

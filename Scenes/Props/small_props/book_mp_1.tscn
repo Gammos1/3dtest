@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bf7c7vh32uyu3"]
 
 [ext_resource type="Script" uid="uid://chueuwl8lp1pr" path="res://Scenes/Props/item.gd" id="1_lc6pf"]
-[ext_resource type="Texture2D" uid="uid://drv38x0mox0b8" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Small Props/book_mp_1_books_mp_1.png" id="1_o6n36"]
+[ext_resource type="Texture2D" uid="uid://drv38x0mox0b8" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Small Props/book_mp_1_books_mp_1.png" id="1_o6n36"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u7qfk"]
 resource_name = "books_mp_1"

@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bggghe34xep3d"]
 
-[ext_resource type="Texture2D" uid="uid://blqy40a8mum3c" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_pc_monitor_mp_1.png" id="1_20ooq"]
-[ext_resource type="Texture2D" uid="uid://bs43gctti8cnr" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_crt_screen_mp_2.png" id="2_qji1i"]
-[ext_resource type="Texture2D" uid="uid://wva3es8c115s" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_display_mp_1_emission.png" id="3_38yne"]
+[ext_resource type="Texture2D" uid="uid://blqy40a8mum3c" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_pc_monitor_mp_1.png" id="1_20ooq"]
+[ext_resource type="Texture2D" uid="uid://bs43gctti8cnr" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_crt_screen_mp_2.png" id="2_qji1i"]
+[ext_resource type="Texture2D" uid="uid://wva3es8c115s" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Electronics & Misc/pc_monitor_mp_1_display_mp_1_emission.png" id="3_38yne"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51e5w"]
 resource_name = "pc_monitor_mp_1"

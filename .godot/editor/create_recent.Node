@@ -1,6 +1,8 @@
-StaticBody3D
-Node3D
-WorldEnvironment
+Label3D
+RichTextLabel
 CollisionShape3D
 RigidBody3D
+Node3D
+StaticBody3D
+WorldEnvironment
 SpringArm3D

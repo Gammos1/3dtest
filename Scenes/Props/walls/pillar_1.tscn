@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene format=2]
 
-[ext_resource path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Modular Structures/pillar_1.glb" type="PackedScene" id=1]
+[ext_resource type="PackedScene" uid="uid://ir4r4oho8opv" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Modular Structures/pillar_1.glb" id="1"]
 
 [sub_resource type="BoxShape3D" id=1]
 extents = Vector3( 0.226793, 1.50652, 0.246985 )

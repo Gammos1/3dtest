@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhtr1w7l8kvvh"]
 
-[ext_resource type="PackedScene" uid="uid://cumorfdt30bv6" path="res://assets/PSX Mega Pack/Models/GLB (recommended)/Modular Structures/wall_1.glb" id="1"]
+[ext_resource type="PackedScene" uid="uid://cumorfdt30bv6" path="res://assets/assetpack_rooms/Models/GLB (recommended)/Modular Structures/wall_1.glb" id="1"]
 
 [sub_resource type="BoxShape3D" id="1"]
 size = Vector3(4.05074, 3.05786, 0.1222172)
